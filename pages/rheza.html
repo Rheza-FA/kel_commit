@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/rheza.css">
 </head>
 <body>
-    <!-- Minimalist Top Bar -->
+    <!-- Minimalist Fixed Header -->
     <header class="profile-header">
         <a href="../index.html#contributors-section" class="back-link" aria-label="Kembali ke Landing Page">
             <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -84,7 +84,7 @@
                 </div>
 
                 <!-- Center Horizontal Axis Line & Travelling Progress Dot -->
-                <div class="horizon-axis-bar">
+                <div class="horizon-axis-bar" id="horizon-axis-bar">
                     <div class="horizon-left-meta">
                         <span class="chapter-counter" id="chapter-counter">01</span>
                         <span class="chapter-persistent-label">Engineered to Scale</span>
@@ -95,7 +95,7 @@
                 </div>
 
                 <!-- Central Story Content Stage -->
-                <div class="story-content-stage">
+                <div class="story-content-stage" id="story-content-stage">
                     <!-- Slide 01: SMK Kelas 10 -->
                     <article class="story-slide is-active" data-slide="0">
                         <div class="story-upper-anchor">
@@ -192,7 +192,7 @@
                 </div>
 
                 <!-- Bottom Scroll Prompt -->
-                <div class="story-scroll-prompt">
+                <div class="story-scroll-prompt" id="story-scroll-prompt">
                     <span>Scroll to Explore</span>
                     <span class="prompt-plus">+</span>
                 </div>
@@ -203,14 +203,16 @@
         <section class="manifesto-section" id="manifesto-section">
             <div class="manifesto-grid">
                 <div class="manifesto-left">
-                    <div class="manifesto-composition">
-                        <div class="manifesto-lead-box">
+                    <div class="manifesto-composition" id="manifesto-composition">
+                        <div class="manifesto-lead-box" id="manifesto-lead-box">
                             <div class="identity-meta">
                                 <strong>Rheza Favian A.</strong>
                                 <span>RPL ’26 — D4 TRPL</span>
                             </div>
                             <div class="manifesto-square-card">
                                 <img
+                                    class="parallax-window-img"
+                                    id="manifesto-square-img"
                                     src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
                                     alt="Software Engineering Workstation"
                                     loading="lazy"
@@ -227,9 +229,10 @@
 
                 <div class="manifesto-right">
                     <div class="polaroid-pair">
-                        <article class="polaroid-card">
+                        <article class="polaroid-card" data-polaroid="0">
                             <div class="polaroid-photo-wrap">
                                 <img
+                                    class="polaroid-img"
                                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
                                     alt="Gedung Institusi BNPB"
                                     loading="lazy"
@@ -244,9 +247,10 @@
                             </div>
                         </article>
 
-                        <article class="polaroid-card">
+                        <article class="polaroid-card" data-polaroid="1">
                             <div class="polaroid-photo-wrap">
                                 <img
+                                    class="polaroid-img"
                                     src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
                                     alt="Arsitektur Kode dan Basis Data"
                                     loading="lazy"
@@ -265,7 +269,7 @@
             </div>
         </section>
 
-        <!-- Section 3: 2-Column Architectural Showcase (Tanpa garis pemisah, sesuai referensi) -->
+        <!-- Section 3: 2-Column Architectural Showcase -->
         <section class="showcase-section" id="showcase-section" aria-label="Karya Perangkat Lunak Pilihan">
             <div class="showcase-top-bar">
                 <span>Recent Additions</span>
@@ -281,6 +285,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="showcase-panel panel-left"
+                    data-showcase-panel="0"
                     aria-label="Jelajahi proyek Manajemen Cuti BNPB"
                 >
                     <div class="panel-header">
@@ -295,13 +300,15 @@
                     </div>
 
                     <div class="panel-stage">
-                        <img
-                            class="showcase-product-img"
-                            src="../images/rheza-cuti-bnpb.png"
-                            alt="Pratinjau Aplikasi Web Manajemen Cuti BNPB"
-                            loading="lazy"
-                            decoding="async"
-                        >
+                        <div class="showcase-img-plane" data-showcase-plane>
+                            <img
+                                class="showcase-product-img"
+                                src="../images/rheza-cuti-bnpb.png"
+                                alt="Pratinjau Aplikasi Web Manajemen Cuti BNPB"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
                     </div>
 
                     <div class="panel-colors" aria-hidden="true">
@@ -328,6 +335,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="showcase-panel panel-right"
+                    data-showcase-panel="1"
                     aria-label="Jelajahi rilis aplikasi Neymo di GitHub"
                 >
                     <div class="panel-header">
@@ -342,13 +350,15 @@
                     </div>
 
                     <div class="panel-stage">
-                        <img
-                            class="showcase-product-img"
-                            src="../images/rheza-neymo.png"
-                            alt="Pratinjau Aplikasi Mobile Personal Finance Neymo"
-                            loading="lazy"
-                            decoding="async"
-                        >
+                        <div class="showcase-img-plane" data-showcase-plane>
+                            <img
+                                class="showcase-product-img"
+                                src="../images/rheza-neymo.png"
+                                alt="Pratinjau Aplikasi Mobile Personal Finance Neymo"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
                     </div>
 
                     <span class="panel-explore-btn">
