@@ -9,6 +9,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isPageUnlocked = false;
 
+    // Variabel state untuk Native Inertial Smooth Scroll Engine
+    let virtualTargetScrollY = 0;
+    let virtualCurrentScrollY = 0;
+    let isWheelSmoothingActive = false;
+
+    function clamp(val, min, max) {
+        return Math.min(Math.max(val, min), max);
+    }
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function getMaxScrollLimit() {
+        return Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+    }
+
+    // Fungsi pembantu untuk mengarahkan kamera secara halus ke posisi Y tertentu (untuk navigasi & back-to-top)
+    function smoothScrollToY(destinationY) {
+        if (!isPageUnlocked) return;
+        virtualCurrentScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        virtualTargetScrollY = clamp(destinationY, 0, getMaxScrollLimit());
+        isWheelSmoothingActive = true;
+    }
+
     // Fungsi idempoten untuk membuka kunci scroll halaman dan menghapus elemen loader dari DOM
     function unlockPageStage() {
         if (isPageUnlocked) return;
@@ -22,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(() => {
             measureStageGeometry();
+            const initialY = window.scrollY || document.documentElement.scrollTop || 0;
+            virtualCurrentScrollY = initialY;
+            virtualTargetScrollY = initialY;
             updateScrollInput();
         });
     }
@@ -138,18 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let originCoords = { x: 0, y: 0 };
     let targetCoords = { x: 0, y: 0 };
 
-    function clamp(val, min, max) {
-        return Math.min(Math.max(val, min), max);
-    }
-
-    function easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 3);
-    }
-
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
     // Kalkulasi geometri presisi untuk lintasan diagonal artefak 3D
     function measureStageGeometry() {
         const stageRect = mainStage.getBoundingClientRect();
@@ -228,10 +248,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Render loop berbasis requestAnimationFrame dengan Linear Interpolation (Lerp) untuk kelancaran 60FPS
-    function renderLoop() {
-        currentHeroProgress += (targetHeroProgress - currentHeroProgress) * 0.11;
-        if (Math.abs(targetHeroProgress - currentHeroProgress) < 0.0004) {
+    // Event listener Native Inertial Smooth Scroll (hanya aktif setelah loader selesai)
+    window.addEventListener('wheel', (e) => {
+        if (!isPageUnlocked || e.ctrlKey) return;
+
+        // Izinkan scroll horizontal bawaan di dalam area kode terminal jika kontennya melebar
+        const blueprintBox = e.target.closest('.terminal-blueprint');
+        if (blueprintBox && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const deltaMultiplier = e.deltaMode === 1 ? 36 : e.deltaMode === 2 ? window.innerHeight : 1;
+        const rawDelta = e.deltaY * deltaMultiplier * 0.92;
+
+        if (!isWheelSmoothingActive) {
+            virtualCurrentScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            virtualTargetScrollY = virtualCurrentScrollY;
+            isWheelSmoothingActive = true;
+        }
+
+        virtualTargetScrollY = clamp(virtualTargetScrollY + rawDelta, 0, getMaxScrollLimit());
+    }, { passive: false });
+
+    window.addEventListener('scroll', () => {
+        if (!isWheelSmoothingActive) {
+            const nativeY = window.scrollY || document.documentElement.scrollTop || 0;
+            virtualCurrentScrollY = nativeY;
+            virtualTargetScrollY = nativeY;
+        }
+        updateScrollInput();
+    }, { passive: true });
+
+    window.addEventListener('keydown', (e) => {
+        const stepKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '];
+        if (stepKeys.includes(e.key)) {
+            isWheelSmoothingActive = false;
+        }
+    }, { passive: true });
+
+    // Integrasi tautan navigasi anchor (#commit-architecture, dll.) dengan mesin Inertial Scroll
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+            const targetHref = anchor.getAttribute('href');
+            if (!targetHref || targetHref === '#') {
+                e.preventDefault();
+                smoothScrollToY(0);
+                return;
+            }
+            const targetEl = document.querySelector(targetHref);
+            if (targetEl) {
+                e.preventDefault();
+                const currentY = window.scrollY || document.documentElement.scrollTop || 0;
+                const destY = targetEl.getBoundingClientRect().top + currentY;
+                smoothScrollToY(destY);
+            }
+        });
+    });
+
+    // Master Render Loop dengan Frame-Rate Independent Exponential Damping (dt)
+    let lastTimestamp = performance.now();
+
+    function renderLoop(now) {
+        const dt = Math.min((now - lastTimestamp) / 1000, 0.064);
+        lastTimestamp = now;
+
+        const scrollAlpha = 1 - Math.exp(-9.5 * dt);
+        const heroAlpha = 1 - Math.exp(-10.5 * dt);
+        const cardsAlpha = 1 - Math.exp(-11.0 * dt);
+
+        // 1. Eksekusi posisi Inertial Scroll terlebih dahulu dalam frame yang sama
+        if (isPageUnlocked && isWheelSmoothingActive) {
+            virtualCurrentScrollY += (virtualTargetScrollY - virtualCurrentScrollY) * scrollAlpha;
+            if (Math.abs(virtualTargetScrollY - virtualCurrentScrollY) < 0.15) {
+                virtualCurrentScrollY = virtualTargetScrollY;
+                isWheelSmoothingActive = false;
+            }
+            window.scrollTo(0, virtualCurrentScrollY);
+            updateScrollInput();
+        }
+
+        // 2. Interpolasi Artefak 3D Commit Core & Pelebaran Kartu Hijau Hero
+        currentHeroProgress += (targetHeroProgress - currentHeroProgress) * heroAlpha;
+        if (Math.abs(targetHeroProgress - currentHeroProgress) < 0.0003) {
             currentHeroProgress = targetHeroProgress;
         }
 
@@ -256,8 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
         trajLineOutside.setAttribute('x2', curX.toFixed(1));
         trajLineOutside.setAttribute('y2', curY.toFixed(1));
 
-        currentCardsProgress += (targetCardsProgress - currentCardsProgress) * 0.12;
-        if (Math.abs(targetCardsProgress - currentCardsProgress) < 0.0004) {
+        // 3. Interpolasi 5 Kartu 3D Scroll-Flip Contributors
+        currentCardsProgress += (targetCardsProgress - currentCardsProgress) * cardsAlpha;
+        if (Math.abs(targetCardsProgress - currentCardsProgress) < 0.0003) {
             currentCardsProgress = targetCardsProgress;
         }
 
@@ -360,12 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         measureStageGeometry();
+        virtualTargetScrollY = clamp(virtualTargetScrollY, 0, getMaxScrollLimit());
         updateScrollInput();
     }, { passive: true });
 
-    window.addEventListener('scroll', updateScrollInput, { passive: true });
-
     backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        smoothScrollToY(0);
     });
 });
