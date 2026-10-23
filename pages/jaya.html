@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaya - Portfolio Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS (Disesuaikan ke folder css/) -->
+    <link rel="stylesheet" href="../css/Jaya.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">JAYA<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item">Home</a></li>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#education" class="nav-item">Education</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#experience" class="nav-item">Experience</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#beyond-tech" class="nav-item">Beyond Tech</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="../../index.html" class="btn btn-outline-light"><i class="fas fa-arrow-left"></i> Back to Team</a>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-elements">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+        </div>
+        <div class="container hero-content animate-on-scroll">
+            <div class="hero-text">
+                <div class="badge-profile">Team Member Profile</div>
+                <h1>I Putu Bagus<br><span class="text-gradient">Ananta Wijaya</span></h1>
+                <h2 class="nickname">"Jaya"</h2>
+                <h3 class="status">Computer Science Student @ Undiksha</h3>
+                <p class="tagline">"Exploring Technology, Building Solutions."</p>
+                <p class="description">
+                    Latar belakang jaringan komputer (TJKT) dengan fokus pengembangan di bidang ilmu komputer, perangkat keras, dan pemrograman.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary-gradient">Explore My Work</a>
+                    <a href="#contact" class="btn btn-outline-light">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-photo-container">
+                        <!-- Foto Profil (Disesuaikan ke folder images/) -->
+                        <img src="../images/Jaya.jpg" alt="I Putu Bagus Ananta Wijaya" class="profile-photo">
+                    </div>
+                    <div class="image-backdrop"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding bg-alt-grad-1 relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="about-content card-elevated animate-on-scroll">
+                <div class="about-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="about-text">
+                    <p>
+                        Halo! Saya adalah mahasiswa S1 Ilmu Komputer di <strong>Universitas Pendidikan Ganesha (Undiksha)</strong>, berdomisili di Singaraja, Bali. 
+                    </p>
+                    <p>
+                        Sebelum memasuki dunia perkuliahan, saya menempuh pendidikan di <strong>SMK TI Bali Global Singaraja</strong> dengan jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Pengalaman tersebut memberi saya fondasi kuat di bidang infrastruktur jaringan, dan kini saya antusias memperluas keahlian saya ke ranah pengembangan perangkat lunak dan sistem komputer secara keseluruhan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section-padding bg-alt-1 relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Education <span class="text-gradient">Journey</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card-elevated">
+                        <div class="edu-header">
+                            <h3>Universitas Pendidikan Ganesha</h3>
+                            <span class="status-badge ongoing gradient-bg">Current</span>
+                        </div>
+                        <h4>S1 Ilmu Komputer</h4>
+                        <p class="edu-desc">Fokus pada algoritma, pemrograman, dan pengembangan sistem komputer.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card-elevated">
+                        <div class="edu-header">
+                            <h3>SMK TI Bali Global Singaraja</h3>
+                            <span class="status-badge graduated">Alumni</span>
+                        </div>
+                        <h4>Teknik Jaringan Komputer & Telekomunikasi (TJKT)</h4>
+                        <p class="edu-desc">Mempelajari dasar jaringan, instalasi, dan administrasi infrastruktur jaringan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section-padding bg-alt-2 relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="skills-grid">
+                
+                <div class="skill-card card-elevated animate-on-scroll">
+                    <div class="skill-icon"><i class="fas fa-network-wired text-gradient"></i></div>
+                    <h3>Networking</h3>
+                    <ul>
+                        <li>Dasar jaringan LAN</li>
+                        <li>Konfigurasi MikroTik</li>
+                        <li>Penggunaan Winbox</li>
+                        <li>Troubleshooting jaringan</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card card-elevated animate-on-scroll">
+                    <div class="skill-icon"><i class="fas fa-microchip text-gradient"></i></div>
+                    <h3>Hardware</h3>
+                    <ul>
+                        <li>Pengenalan komponen PC</li>
+                        <li>Perakitan perangkat</li>
+                        <li>Penanganan & maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card card-elevated animate-on-scroll">
+                    <div class="skill-icon"><i class="fas fa-wave-square text-gradient"></i></div>
+                    <h3>Fiber Optic</h3>
+                    <ul>
+                        <li>Pengenalan alat fiber optik</li>
+                        <li>Teknik penyambungan</li>
+                        <li>Pengenalan konektor SC</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card card-elevated animate-on-scroll">
+                    <div class="skill-icon"><i class="fas fa-code text-gradient"></i></div>
+                    <h3>Programming</h3>
+                    <div class="skill-tag gradient-bg">Sedang Berkembang</div>
+                    <ul>
+                        <li>Pengembangan Website</li>
+                        <li>Sistem Perangkat Lunak</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section-padding bg-white relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Work & Field <span class="text-gradient">Experience</span></h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="experiences-grid">
+                <!-- MyRepublic Experience -->
+                <div class="experience-card card-elevated animate-on-scroll">
+                    <div class="exp-header-wrap">
+                        <div class="exp-icon myrep-icon-bg"><i class="fas fa-bullhorn"></i></div>
+                        <div class="exp-title-area">
+                            <h3>Sales / Marketing</h3>
+                            <h4 class="text-gradient">MyRepublic (ISP)</h4>
+                        </div>
+                    </div>
+                    <div class="exp-body">
+                        <p class="exp-desc">Berpengalaman sebagai Sales representatif untuk penyedia layanan internet fiber berkecepatan tinggi MyRepublic.</p>
+                        <ul class="exp-list full-width-list">
+                            <li><i class="fas fa-check"></i> Memasarkan produk layanan internet fiber optik kepada calon pelanggan</li>
+                            <li><i class="fas fa-check"></i> Membantu konsultasi kebutuhan internet dan paket berlangganan</li>
+                            <li><i class="fas fa-check"></i> Membangun relasi dan memperluas jangkauan pasar area lokal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PKL Experience -->
+                <div class="experience-card card-elevated animate-on-scroll">
+                    <div class="exp-header-wrap">
+                        <div class="exp-icon gradient-bg"><i class="fas fa-briefcase"></i></div>
+                        <div class="exp-title-area">
+                            <h3>Praktik Kerja Lapangan (PKL)</h3>
+                            <h4 class="text-gradient">PT Sano Komunikasi (Spicelink Broadband)</h4>
+                        </div>
+                    </div>
+                    <div class="exp-body">
+                        <p class="exp-desc">Pengalaman praktik langsung di industri penyedia layanan internet (ISP) dan infrastruktur jaringan pelanggan.</p>
+                        <div class="exp-grid">
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check"></i> Instalasi Wi-Fi pelanggan</li>
+                                <li><i class="fas fa-check"></i> Penarikan kabel jaringan</li>
+                                <li><i class="fas fa-check"></i> Pemasangan ODP</li>
+                            </ul>
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check"></i> Penanganan gangguan (Internet Loss)</li>
+                                <li><i class="fas fa-check"></i> Penyambungan fiber optik</li>
+                                <li><i class="fas fa-check"></i> Terminasi konektor SC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding bg-alt-1 relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">My <span class="text-gradient">Projects</span></h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="filter-container animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="networking">Networking</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="programming">Programming</button>
+            </div>
+
+            <div class="projects-grid">
+                
+                <div class="project-card card-elevated animate-on-scroll" data-category="web">
+                    <div class="project-img gradient-bg">
+                        <i class="fas fa-users"></i>
+                        <div class="overlay-text glass-tag">Completed Project</div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Web Development</span>
+                        <h3>Group Portfolio Website</h3>
+                        <p>Website portofolio kolaborasi kelompok mahasiswa Ilmu Komputer.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span><span>CSS</span><span>Vanilla JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card-elevated animate-on-scroll" data-category="networking">
+                    <div class="project-img project-bg-net">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="status-watermark-done">Project Done</span>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Networking</span>
+                        <h3>Network Topology</h3>
+                        <p>Desain dan simulasi topologi jaringan menggunakan Cisco Packet Tracer.</p>
+                        <div class="tech-stack">
+                            <span>Cisco Packet Tracer</span><span>LAN Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card-elevated animate-on-scroll" data-category="networking">
+                    <div class="project-img project-bg-net">
+                        <i class="fas fa-server"></i>
+                        <span class="status-watermark-done">Project Done</span>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Networking</span>
+                        <h3>MikroTik Configuration</h3>
+                        <p>Implementasi dan konfigurasi perangkat routing MikroTik & Winbox.</p>
+                        <div class="tech-stack">
+                            <span>MikroTik</span><span>Winbox</span><span>Routing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card-elevated animate-on-scroll" data-category="networking">
+                    <div class="project-img project-bg-net">
+                        <i class="fas fa-tools"></i>
+                        <span class="status-watermark-done">Project Done</span>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Networking</span>
+                        <h3>Network Installation</h3>
+                        <p>Dokumentasi lapangan kegiatan instalasi jaringan dan fiber optik selama PKL.</p>
+                        <div class="tech-stack">
+                            <span>Fiber Optic</span><span>ISP Maintenance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card-elevated animate-on-scroll" data-category="programming">
+                    <div class="project-img project-bg-prog">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="overlay-text glass-tag">Coming Soon</div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Programming</span>
+                        <h3>Campus Mini Projects</h3>
+                        <p>Kumpulan program dan algoritma mendatang yang akan dikembangkan selama perkuliahan.</p>
+                        <div class="tech-stack">
+                            <span>Algorithms</span><span>C++ / Python</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Tech / Gaming Section -->
+    <section id="beyond-tech" class="beyond-tech section-padding bg-alt-2 relative-z">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Beyond <span class="text-gradient">Tech</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="beyond-content card-gradient-reverse animate-on-scroll">
+                <div class="beyond-text">
+                    <div class="quote-icon"><i class="fas fa-gamepad"></i></div>
+                    <p>Di luar layar monitor dan rentetan kode, saya memiliki <em>passion</em> yang besar di dunia gaming, khususnya dengan genre <strong>Story-Driven / Narrative Games</strong>.</p>
+                    <p>Saya sangat menikmati game yang memiliki alur cerita mendalam, sinematik yang kuat, dan pengembangan karakter yang emosional seperti franchise <strong>The Last of Us</strong>, seri <strong>Resident Evil</strong>, <strong>God of War</strong>, serta menantikan rilisan seperti <strong>Pragmata</strong>.</p>
+                    <p class="dream-text">"Bagi saya, video game bukan sekadar hiburan, melainkan mahakarya seni interaktif yang menginspirasi kreativitas dalam membangun sistem."</p>
+                </div>
+                <div class="beyond-visual">
+                    <div class="guitar-icon-wrapper float-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding bg-white relative-z">
+        <div class="container">
+            <div class="contact-wrapper card-elevated text-center animate-on-scroll">
+                <h2>Let's <span class="text-gradient">Connect!</span></h2>
+                <p>Tertarik untuk berkolaborasi atau sekadar berdiskusi tentang teknologi dan game?</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-btn">
+                        <div class="icon-box gradient-bg"><i class="fas fa-envelope"></i></div>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="#" class="contact-btn" target="_blank">
+                        <div class="icon-box gradient-bg"><i class="fab fa-github"></i></div>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="contact-btn" target="_blank">
+                        <div class="icon-box gradient-bg"><i class="fab fa-linkedin-in"></i></div>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="contact-btn" target="_blank">
+                        <div class="icon-box gradient-bg"><i class="fab fa-instagram"></i></div>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>JAYA<span class="text-gradient">.</span></h3>
+                <p>I Putu Bagus Ananta Wijaya &copy; <span id="current-year"></span></p>
+            </div>
+            <div class="footer-action">
+                <p class="return-text">Selesai melihat profil saya?</p>
+                <a href="../../index.html" class="btn btn-primary-gradient btn-sm">
+                    <i class="fas fa-home"></i> Kembali ke Halaman Tim
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Custom JS (Disesuaikan ke folder js/) -->
+    <script src="../js/Jaya.js"></script>
+</body>
+</html>
