@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio • Ida Bagus Andhika Dwi Putra Pidada</title>
+
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link ke CSS Eksternal -->
+    <link rel="stylesheet" href="../css/gusdika.css">
+</head>
+<body>
+
+    <!-- Header & Navigasi Melayang (Fixed Top Bar) -->
+    <header class="top-nav">
+        <div class="nav-brand">
+            <span class="brand-sub">Kel_Commit</span>
+            <span class="brand-title">Branch-gusdika</span>
+        </div>
+        <nav class="nav-menu">
+            <button onclick="scrollToSection('profil')" id="btn-profil" class="nav-item active">
+                <i class="fa-solid fa-user"></i> <span>Profil</span>
+            </button>
+            <button onclick="scrollToSection('akademik')" id="btn-akademik" class="nav-item">
+                <i class="fa-solid fa-graduation-cap"></i> <span>Akademik</span>
+            </button>
+            <button onclick="scrollToSection('pengalaman')" id="btn-pengalaman" class="nav-item">
+                <i class="fa-solid fa-briefcase"></i> <span>Pengalaman</span>
+            </button>
+            <button onclick="scrollToSection('kontak')" id="btn-kontak" class="nav-item">
+                <i class="fa-solid fa-paper-plane"></i> <span>Kontak</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Kontainer Snap Scroll Fullscreen -->
+    <div class="snap-container" id="snapContainer">
+
+        <!-- ================= HALAMAN 1: PROFIL ================= -->
+        <section id="profil" class="page-section">
+            <div class="content-wrapper reveal-element">
+                <div class="header-badge">
+                    <div class="badge-icon"><i class="fa-solid fa-code"></i></div>
+                    <span class="badge-text">Teknik Informatika • Bali</span>
+                </div>
+
+                <h1 class="serif-title main-heading">
+                    Ida Bagus Andhika<br><span class="text-highlight">Dwi Putra Pidada</span>
+                </h1>
+
+                <p class="description-text">
+                    Mahasiswa yang berfokus pada pengembangan aplikasi web modern, pemecahan masalah logika pemrograman, serta perancangan sistem antarmuka digital yang bersih dan efisien.
+                </p>
+
+                <div class="tags-group">
+                    <span class="tag-pill dark"><i class="fa-solid fa-laptop-code"></i> Front-End Dev</span>
+                    <span class="tag-pill outline"><i class="fa-solid fa-database"></i> Laravel & MySQL</span>
+                    <span class="tag-pill outline"><i class="fa-solid fa-layer-group"></i> UI/UX Clean Design</span>
+                </div>
+
+                <div class="footer-meta">
+                    <span class="location"><i class="fa-solid fa-location-dot"></i> Badung, Bali 🌴</span>
+                    <span class="page-count">01 / 04</span>
+                </div>
+            </div>
+            
+            <div class="scroll-hint" onclick="scrollToSection('akademik')">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 2: AKADEMIK ================= -->
+        <section id="akademik" class="page-section">
+            <div class="content-wrapper reveal-element">
+                <div class="header-badge">
+                    <div class="badge-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="badge-text">Studi & Informasi Akademik</span>
+                </div>
+
+                <h2 class="serif-title section-heading">Detail Akademik & Latar Belakang</h2>
+
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="info-label">Nama Panggilan</span>
+                        <span class="info-value">Gus Dika</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">NIM</span>
+                        <span class="info-value">2615091162</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Alamat Asal</span>
+                        <span class="info-value">BR Campuan Asri Kauh Blok BB 103</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Asal Sekolah</span>
+                        <span class="info-value">SMK TI Bali Global Badung</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Program Studi</span>
+                        <span class="info-value">Sistem Informasi</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Hobi</span>
+                        <span class="info-value">otomotif</span>
+                    </div>
+                </div>
+
+                <div class="reason-card">
+                    <span class="reason-title"><i class="fa-solid fa-lightbulb"></i> Alasan Memilih Jurusan & Prodi</span>
+                    <p class="reason-text">
+                        Tertarik mendalami pengembangan perangkat lunak modern, pemecahan masalah logika pemrograman, serta peluang besar di era digital untuk merancang sistem aplikasi yang bermanfaat bagi banyak orang.
+                    </p>
+                </div>
+
+                <div class="footer-meta">
+                    <span class="faculty"><i class="fa-solid fa-book-open"></i> Fakultas Teknik dan Kejuruan</span>
+                    <span class="page-count">02 / 04</span>
+                </div>
+            </div>
+
+            <div class="scroll-hint" onclick="scrollToSection('pengalaman')">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 3: PENGALAMAN ================= -->
+        <section id="pengalaman" class="page-section">
+            <div class="content-wrapper reveal-element">
+                <div class="header-badge">
+                    <div class="badge-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <span class="badge-text">Pengalaman Kerja & PKL</span>
+                </div>
+
+                <div class="experience-header">
+                    <h2 class="serif-title company-title">PLN Icon Plus</h2>
+                    <span class="role-badge"><i class="fa-solid fa-bolt"></i> Back Office & Sales</span>
+                </div>
+
+                <div class="experience-body">
+                    <p class="experience-desc">
+                        Memiliki pengalaman Praktik Kerja Lapangan (PKL) di <strong>PLN Icon Plus</strong>. Bertanggung jawab dalam mengelola administrasi data internal serta dokumentasi operasional sebagai <em>Back Office</em>, serta berpartisipasi aktif dalam divisi <em>Sales</em> untuk mendukung strategi pemasaran produk layanan konektivitas internet dan solusi teknologi informasi.
+                    </p>
+
+                    <div class="responsibilities-grid">
+                        <div class="res-item">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <div>
+                                <h4>Administrasi & Back Office</h4>
+                                <p>Pengelolaan data pelanggan, verifikasi berkas, dan penyusunan rekapitulasi operasional harian.</p>
+                            </div>
+                        </div>
+                        <div class="res-item">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <div>
+                                <h4>Sales & Customer Relation</h4>
+                                <p>Mendukung prospek penjualan layanan jaringan broadband dan komunikasi dengan calon klien.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-meta">
+                    <span class="industry"><i class="fa-solid fa-network-wired"></i> Industri Telekomunikasi & Solusi IT</span>
+                    <span class="page-count">03 / 04</span>
+                </div>
+            </div>
+
+            <div class="scroll-hint" onclick="scrollToSection('kontak')">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 4: KONTAK ================= -->
+        <section id="kontak" class="page-section">
+            <div class="content-wrapper reveal-element">
+                <div class="header-badge">
+                    <div class="badge-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                    <span class="badge-text">Jaringan & Diskusi</span>
+                </div>
+
+                <h2 class="serif-title section-heading">Mari Terhubung & Berkolaborasi</h2>
+                <p class="description-text">
+                    Saya terbuka untuk peluang proyek web, diskusi teknologi, maupun jejaring profesional. Silakan hubungi saya melalui media sosial di bawah ini.
+                </p>
+
+                <div class="social-links-list">
+                    <a href="https://www.instagram.com/tugusdikaa__?igsh=NWtnd2lxNDVzM3Ux" target="_blank" rel="noopener" class="social-card">
+                        <div class="social-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="social-info">
+                            <span class="social-platform">Instagram</span>
+                            <span class="social-handle">@tugusdikaa__</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+                    </a>
+                </div>
+
+                <div class="footer-meta">
+                    <span class="location"><i class="fa-solid fa-globe"></i> Berbasis di Bali, Indonesia</span>
+                    <span class="page-count">04 / 04</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Link ke JS Eksternal -->
+    <script src="../js/gusdika.js"></script>
+</body>
+</html>
