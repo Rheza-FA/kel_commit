@@ -16,11 +16,10 @@
     box-sizing: border-box;
 }
 
-/* Menyembunyikan scrollbar visual untuk mencegah layout shift (15px) saat loader dihapus dari DOM */
+/* Menyembunyikan scrollbar visual dan menonaktifkan CSS smooth-scroll bawaan agar dikendalikan penuh oleh Inertial Engine JS */
 html {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -40,6 +39,8 @@ body {
     background-color: #ffffff;
     color: var(--brand-dark);
     overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html:not(.loaded),
